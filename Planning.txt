@@ -10,8 +10,6 @@ Functions:
 	GetUserContributions(userID)
 		GET https://github.com/users/:userID/contributions
 		Parse the html response into an array of contributions[]
-	UpdateContributionGraph
-		Put the array of contributions into a pretty graph on the page.
 	PlaySong
 		Loop with a delay at the end. 
 		Either goes through each week once then stops, or loops endlessly (would require pauseSong function)
