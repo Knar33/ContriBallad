@@ -38,4 +38,9 @@ function GetUserContributions(userID) {
     UserContributions.DailyContributions = contributions;
 }
   
-    
+function PlaySong() {
+    setInterval(function() {
+        const newAudio = document.getElementById('Piano1').cloneNode()
+        newAudio.play();
+    }, 100);
+}
