@@ -1,4 +1,5 @@
 const UserContributions = {};
+var sound = new Audio("../sound/Piano1.wav");
 
 function GetUserContributions(userID) {
     //Make API call to https://github.com/users/userID/contributions
@@ -37,7 +38,4 @@ function GetUserContributions(userID) {
     UserContributions.DailyContributions = contributions;
 }
   
-
-function PlaySong() {
-
-}
+    
