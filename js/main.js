@@ -39,8 +39,32 @@ function GetUserContributions(userID) {
 }
   
 function PlaySong() {
+    var running = true;
+    var timePerFrame = (300);
+    var frameEnd = 0;
+    var frameStart = window.performance.now();
+    var lastFrameTime = 0;
+    var isPaused = true;
+    var pauseTimer = 0;
+    var pauseStart = window.performance.now();
+
     setInterval(function() {
-        const newAudio = document.getElementById('Piano1').cloneNode()
-        newAudio.play();
-    }, 100);
+        pauseTimer = window.performance.now();
+        if ((lastFrameTime + (pauseTimer - pauseStart)) < timePerFrame) {
+            isPaused = true;
+        } else {
+            isPaused = false;
+        }
+        if (!isPaused) {
+            frameStart = window.performance.now();
+
+            const newAudio = document.getElementById('Piano1').cloneNode()
+            newAudio.play();
+
+            frameTime = window.performance.now();
+            lastFrameTime = frameTime - frameStart;
+            pauseStart = window.performance.now();
+            isPaused = false;
+        }
+    }, 1);
 }
