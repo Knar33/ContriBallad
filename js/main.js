@@ -28,10 +28,26 @@ function GetUserContributions(userID) {
     const contributions = [];
 
     for (let day of dailyContributions){
-        contributions.push({
+        newContribution = {
             date: day.getAttribute("data-date"),
             count: day.getAttribute("data-count")
-        }); 
+        };
+        if (day.getAttribute("fill") == "#ebedf0") {
+            newContribution.contributionDepth = 0
+        };
+        if (day.getAttribute("fill") == "#c6e48b") {
+            newContribution.contributionDepth = 1
+        };
+        if (day.getAttribute("fill") == "#7bc96f") {
+            newContribution.contributionDepth = 2
+        };
+        if (day.getAttribute("fill") == "#239a3b") {
+            newContribution.contributionDepth = 3
+        };
+        if (day.getAttribute("fill") == "#196127") {
+            newContribution.contributionDepth = 4
+        };
+        contributions.push(newContribution); 
     }
     
     //set that array to UserContributions.DailyContributions
