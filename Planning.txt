@@ -1,0 +1,37 @@
+Overview
+
+When the page initially loads (body onload), GetUserContributions(knar33), then UpdateContributionGraph()
+Text box for user to input a github account. Submit button fires off GetUserContributions(userInput) for the selected
+Play button - fires off PlaySong()
+	*maybe* turns into pause button - PauseSong()
+big pretty contribution graph
+	
+Functions:
+	GetUserContributions(userID)
+		GET https://github.com/users/:userID/contributions
+		Parse the html response into an array of contributions[]
+	UpdateContributionGraph
+		Put the array of contributions into a pretty graph on the page.
+	PlaySong
+		Loop with a delay at the end. 
+		Either goes through each week once then stops, or loops endlessly (would require pauseSong function)
+
+
+
+
+function GetUserContributions(userID) {
+	const calendarGraph = document.getElementsByClassName('js-calendar-graph')[0];
+	const dailyContributions = calendarGraph.getElementsByClassName('day');
+	const days = [];
+
+	for (let day of dailyContributions){
+		days.push({
+		   date: day.getAttribute('data-date'),
+		   count: day.getAttribute('data-count')
+		}); 
+	}
+	
+	return days;
+}
+
+GetContributions();
