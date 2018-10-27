@@ -4,8 +4,6 @@ function GetUserContributions(userID) {
     //Make API call to https://github.com/users/userID/contributions
     var resData;
 
-    $("graphFrame").url = "https://github.com/users/" + userID + "/contributions";
-
     $.ajax({
         url: "https://github.com/users/" + userID + "/contributions",
         method: 'get',
