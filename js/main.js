@@ -69,22 +69,25 @@ function PlaySong() {
             var instrument = "piano";
             switch(i) {
                 case 0:
-                    instrument = "guitar";
+                    instrument = "piano1-";
                     break;
                 case 1:
-                    instrument = "piano";
+                    instrument = "piano2-";
                     break;
                 case 2:
+                    instrument = "piano3-";
                     break;
                 case 3:
+                    instrument = "piano4-";
                     break;
                 case 4:
+                    instrument = "guitar1-";
                     break;
                 case 5:
+                    instrument = "guitar2-";
                     break;
                 case 6:
-                    break;
-                case 7:
+                    instrument = "guitar3-";
                     break;
             }
             var notePlusOffset = currentNote + i;
