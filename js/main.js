@@ -69,16 +69,16 @@ function PlaySong() {
             var instrument = "piano";
             switch(i) {
                 case 0:
-                    instrument = "piano1-";
-                    break;
-                case 1:
                     instrument = "piano2-";
                     break;
+                case 1:
+                    instrument = "piano1-";
+                    break;
                 case 2:
-                    instrument = "piano3-";
+                    instrument = "drum1-";
                     break;
                 case 3:
-                    instrument = "piano4-";
+                    instrument = "drum2-";
                     break;
                 case 4:
                     instrument = "guitar1-";
