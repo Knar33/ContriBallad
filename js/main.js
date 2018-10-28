@@ -91,11 +91,14 @@ function PlaySong() {
                     break;
             }
             var notePlusOffset = currentNote + i;
-            var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
-            if (depth != 0) {
-                var instrumentNote = instrument + depth;
-                const newAudio = document.getElementById(instrumentNote).cloneNode();
-                newAudio.play();
+            
+            if (notePlusOffset < totalNotes) {
+                var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
+                if (depth != 0) {
+                    var instrumentNote = instrument + depth;
+                    const newAudio = document.getElementById(instrumentNote).cloneNode();
+                    newAudio.play();
+                }
             }
         }
         currentNote += 7;
