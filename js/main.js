@@ -57,43 +57,20 @@ function GetUserContributions(userID) {
 }
   
 function PlaySong() {
-    var running = true;
-    var timePerFrame = (300);
-    var frameEnd = 0;
-    var frameStart = window.performance.now();
-    var lastFrameTime = 0;
-    var isPaused = true;
-    var pauseTimer = 0;
-    var pauseStart = window.performance.now();
-
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
 
     setInterval(function() {
-        pauseTimer = window.performance.now();
-        if ((lastFrameTime + (pauseTimer - pauseStart)) < timePerFrame) {
-            isPaused = true;
-        } else {
-            isPaused = false;
+        if (currentNote === totalNotes) {
+            currentNote = 0;
         }
-        if (!isPaused) {
-            if (currentNote === totalNotes) {
-                currentNote = 0;
-            }
-            frameStart = window.performance.now();
 
-            var depth = UserContributions.DailyContributions[currentNote].contributionDepth;
-            if (depth != 0) {
-                var instrumentNote = "piano" + depth;
-                const newAudio = document.getElementById(instrumentNote).cloneNode();
-                newAudio.play();
-            }
-
-            frameTime = window.performance.now();
-            lastFrameTime = frameTime - frameStart;
-            pauseStart = window.performance.now();
-            isPaused = false;
-            currentNote++;
+        var depth = UserContributions.DailyContributions[currentNote].contributionDepth;
+        if (depth != 0) {
+            var instrumentNote = "piano" + depth;
+            const newAudio = document.getElementById(instrumentNote).cloneNode();
+            newAudio.play();
         }
-    }, 1);
+        currentNote++;
+    }, 300);
 }
