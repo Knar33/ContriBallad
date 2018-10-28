@@ -61,16 +61,40 @@ function PlaySong() {
     var currentNote = 0;
 
     setInterval(function() {
-        if (currentNote === totalNotes) {
+        if (currentNote >= totalNotes) {
             currentNote = 0;
         }
 
-        var depth = UserContributions.DailyContributions[currentNote].contributionDepth;
-        if (depth != 0) {
-            var instrumentNote = "piano" + depth;
-            const newAudio = document.getElementById(instrumentNote).cloneNode();
-            newAudio.play();
+        for (i = 0; i < 7; i++) {
+            var instrument = "piano";
+            switch(i) {
+                case 0:
+                    instrument = "piano";
+                    break;
+                case 1:
+                    instrument = "guitar";
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+            }
+            var notePlusOffset = currentNote + i;
+            var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
+            if (depth != 0) {
+                var instrumentNote = instrument + depth;
+                const newAudio = document.getElementById(instrumentNote).cloneNode();
+                newAudio.play();
+            }
         }
-        currentNote++;
+        currentNote += 7;
     }, 300);
 }
