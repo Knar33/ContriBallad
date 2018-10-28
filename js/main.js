@@ -69,10 +69,10 @@ function PlaySong() {
             var instrument = "piano";
             switch(i) {
                 case 0:
-                    instrument = "piano";
+                    instrument = "guitar";
                     break;
                 case 1:
-                    instrument = "guitar";
+                    instrument = "piano";
                     break;
                 case 2:
                     break;
