@@ -1,5 +1,4 @@
 const UserContributions = {};
-var sound = new Audio("../sound/Piano1.wav");
 
 function GetUserContributions(userID) {
     //Make API call to https://github.com/users/userID/contributions
@@ -64,6 +63,9 @@ function PlaySong() {
     var pauseTimer = 0;
     var pauseStart = window.performance.now();
 
+    var totalNotes = UserContributions.DailyContributions.length;
+    var currentNote = 0;
+
     setInterval(function() {
         pauseTimer = window.performance.now();
         if ((lastFrameTime + (pauseTimer - pauseStart)) < timePerFrame) {
@@ -72,15 +74,23 @@ function PlaySong() {
             isPaused = false;
         }
         if (!isPaused) {
+            if (currentNote === totalNotes) {
+                currentNote = 0;
+            }
             frameStart = window.performance.now();
 
-            const newAudio = document.getElementById('Piano1').cloneNode()
-            newAudio.play();
+            var depth = UserContributions.DailyContributions[currentNote].contributionDepth;
+            if (depth != 0) {
+                var instrumentNote = "piano" + depth;
+                const newAudio = document.getElementById(instrumentNote).cloneNode();
+                newAudio.play();
+            }
 
             frameTime = window.performance.now();
             lastFrameTime = frameTime - frameStart;
             pauseStart = window.performance.now();
             isPaused = false;
+            currentNote++;
         }
     }, 1);
 }
