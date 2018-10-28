@@ -31,20 +31,23 @@ function GetUserContributions(userID) {
             date: day.getAttribute("data-date"),
             count: day.getAttribute("data-count")
         };
-        if (day.getAttribute("fill") == "#ebedf0") {
-            newContribution.contributionDepth = 0
-        };
-        if (day.getAttribute("fill") == "#c6e48b") {
-            newContribution.contributionDepth = 1
-        };
-        if (day.getAttribute("fill") == "#7bc96f") {
-            newContribution.contributionDepth = 2
-        };
-        if (day.getAttribute("fill") == "#239a3b") {
-            newContribution.contributionDepth = 3
-        };
-        if (day.getAttribute("fill") == "#196127") {
-            newContribution.contributionDepth = 4
+
+        switch(day.getAttribute("fill")) {
+            case "#ebedf0":
+                newContribution.contributionDepth = 0
+                break;
+            case "#c6e48b":
+                newContribution.contributionDepth = 1
+                break;
+            case "#7bc96f":
+                newContribution.contributionDepth = 2
+                break;
+            case "#239a3b":
+                newContribution.contributionDepth = 3
+                break;
+            case "#196127":
+                newContribution.contributionDepth = 4
+                break;
         };
         contributions.push(newContribution); 
     }
