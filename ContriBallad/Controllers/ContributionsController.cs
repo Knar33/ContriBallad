@@ -22,7 +22,7 @@ namespace ContriBallad.Controllers
                 string response = "";
 
                 HttpClient client = new HttpClient();
-                var res = await client.GetAsync("https://github.com/users/{0}/contributions" + id);
+                var res = await client.GetAsync(string.Format("https://github.com/users/{0}/contributions", id));
                 response = await res.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 return Request.CreateResponse(HttpStatusCode.OK, response);

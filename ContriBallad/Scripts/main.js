@@ -7,13 +7,13 @@ function GetUserContributions(userID) {
     $.ajax({
         url: "contributions/" + userID,
         method: 'get',
-        dataType: 'text/html',
+        dataType: 'text',
         statusCode: {
             200: function (data) {
                 resData = data;
                 $("#graph").InnerHTML = data;
             },
-            404: function (data) {
+            400: function (data) {
                 resData = data;
                 $("#graph").InnerHTML = "That user does not exist.";
             },
@@ -105,6 +105,6 @@ function PlaySong() {
 }
 
 $(window).on('load', function () {
-    GetUserContributions("Knar33");
+    GetUserContributions("knar33");
     PlaySong();
 });
