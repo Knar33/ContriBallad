@@ -5,10 +5,9 @@ function GetUserContributions(userID) {
     var resData;
 
     $.ajax({
-        url: "https://github.com/users/" + userID + "/contributions",
+        url: "contributions/" + userID,
         method: 'get',
-        crossDomain: true,
-        dataType: 'jsonp html',
+        dataType: 'text/html',
         statusCode: {
             200: function (data) {
                 resData = data;
@@ -104,3 +103,8 @@ function PlaySong() {
         currentNote += 7;
     }, 300);
 }
+
+$(window).on('load', function () {
+    GetUserContributions("Knar33");
+    PlaySong();
+});
