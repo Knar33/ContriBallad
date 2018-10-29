@@ -11,11 +11,11 @@ function GetUserContributions(userID) {
         statusCode: {
             200: function (data) {
                 resData = data;
-                $("#graph").InnerHTML = data;
+                $("#graph").html(data);
             },
             400: function (data) {
                 resData = data;
-                $("#graph").InnerHTML = "That user does not exist.";
+                $("#graph").html("That user does not exist.");
             },
         }
     });
