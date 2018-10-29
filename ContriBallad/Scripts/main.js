@@ -8,6 +8,7 @@ function GetUserContributions(userID) {
         url: "contributions/" + userID,
         method: 'get',
         dataType: 'html',
+        async: false,
         statusCode: {
             200: function (data) {
                 resData = data;
