@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,12 +21,29 @@ namespace ContriBallad.Controllers
             try
             {
                 string response = "";
+                
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("https://github.com/users/{0}/contributions", id));
 
-                HttpClient client = new HttpClient();
-                var res = await client.GetAsync(string.Format("https://github.com/users/{0}/contributions", id));
-                response = await res.Content.ReadAsStringAsync().ConfigureAwait(false);
+                using (HttpWebResponse res = (HttpWebResponse)request.GetResponse())
+                {
+                    if (res.StatusCode == HttpStatusCode.OK)
+                    {
+                        using (Stream stream = res.GetResponseStream())
+                        using (StreamReader reader = new StreamReader(stream))
+                        {
+                            response = reader.ReadToEnd();
+                        }
 
-                return Request.CreateResponse(HttpStatusCode.OK, response);
+                        //response = WebUtility.HtmlEncode(response);;
+
+                        return Request.CreateResponse(HttpStatusCode.OK, response);
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest);
+                    }
+                }
+
             }
             catch (Exception e)
             {

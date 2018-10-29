@@ -92,7 +92,6 @@ C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\bin\Microsoft.AI.Depe
 C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\bin\Microsoft.AI.Web.xml
 C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\obj\Debug\ContriBallad.csprojAssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\obj\Debug\ContriBallad.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\obj\Debug\ContriBallad.csproj.CopyComplete
 C:\Users\Andrew\Documents\GitHub\ContriBallad\ContriBallad\obj\Debug\ContriBallad.dll
