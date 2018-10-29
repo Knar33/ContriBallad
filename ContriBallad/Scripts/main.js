@@ -7,7 +7,7 @@ function GetUserContributions(userID) {
     $.ajax({
         url: "contributions/" + userID,
         method: 'get',
-        dataType: 'text',
+        dataType: 'html',
         statusCode: {
             200: function (data) {
                 resData = data;
@@ -108,3 +108,9 @@ $(window).on('load', function () {
     GetUserContributions("knar33");
     PlaySong();
 });
+
+function htmlDecode(input) {
+    var e = document.createElement('div');
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+}
