@@ -34,7 +34,8 @@ namespace ContriBallad.Controllers
                             response = reader.ReadToEnd();
                         }
 
-                        //response = WebUtility.HtmlEncode(response);;
+                        response = response.Replace("\"", "'");
+
 
                         return Request.CreateResponse(HttpStatusCode.OK, response);
                     }
