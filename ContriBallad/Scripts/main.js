@@ -19,7 +19,8 @@ function GetUserContributions(userID) {
             200: function (data) {
                 resData = data;
                 $("#hiddenGraph").html(data);
-                $("#graph").html($("#hiddenGraph .js-calendar-graph-svg")[0].outerHTML)
+                $("#graph").html($("#hiddenGraph .js-calendar-graph-svg")[0].outerHTML);
+                $("#hiddenGraph").html("");
             },
             400: function (data) {
                 resData = data;
