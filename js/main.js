@@ -1,26 +1,6 @@
 const UserContributions = {};
 
 function GetUserContributions(userID) {
-    //Make API call to https://github.com/users/userID/contributions
-    var resData;
-
-    $.ajax({
-        url: "contributions/" + userID,
-        method: 'get',
-        dataType: 'html',
-        async: false,
-        statusCode: {
-            200: function (data) {
-                resData = data;
-                $("#graph").html(data);
-            },
-            400: function (data) {
-                resData = data;
-                $("#graph").html("That user does not exist.");
-            },
-        }
-    });
-
     //Parse the data into an array of Day/Contributions
     const calendarGraph = $(".js-calendar-graph")[0];
     const dailyContributions = $(".day");

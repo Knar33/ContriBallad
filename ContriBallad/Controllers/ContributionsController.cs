@@ -44,7 +44,6 @@ namespace ContriBallad.Controllers
                         return Request.CreateResponse(HttpStatusCode.BadRequest);
                     }
                 }
-
             }
             catch (Exception e)
             {
