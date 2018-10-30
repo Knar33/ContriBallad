@@ -1,5 +1,5 @@
 var UserContributions = {};
-var Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "b1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "b2", "c3",];
+var Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "b1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "b2", "c3"];
 var MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
 var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
 var userID = "knar33";
@@ -22,7 +22,7 @@ function GetUserContributions() {
             400: function (data) {
                 resData = data;
                 $("#graph").html("That user does not exist.");
-            },
+            }
         }
     });
 
@@ -39,21 +39,21 @@ function GetUserContributions() {
 
         switch(day.getAttribute("fill")) {
             case "#ebedf0":
-                newContribution.contributionDepth = 0
+                newContribution.contributionDepth = 0;
                 break;
             case "#c6e48b":
-                newContribution.contributionDepth = 1
+                newContribution.contributionDepth = 1;
                 break;
             case "#7bc96f":
-                newContribution.contributionDepth = 2
+                newContribution.contributionDepth = 2;
                 break;
             case "#239a3b":
-                newContribution.contributionDepth = 3
+                newContribution.contributionDepth = 3;
                 break;
             case "#196127":
-                newContribution.contributionDepth = 4
+                newContribution.contributionDepth = 4;
                 break;
-        };
+        }
         contributions.push(newContribution); 
     }
     
@@ -65,7 +65,7 @@ function PlaySong() {
     var instruments = [];
 
     var scale = [];
-    if (debugStartingIndex % 2 == 0) {
+    if (debugStartingIndex % 2 === 0) {
         scale = MinorScale;
     }
     else {
@@ -135,7 +135,7 @@ function PlaySong() {
             
             if (notePlusOffset < totalNotes) {
                 var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
-                if (depth != 0) {
+                if (depth !== 0) {
                     instruments[i][depth].play();
                 }
             }
