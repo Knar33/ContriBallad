@@ -88,25 +88,25 @@ function PlaySong() {
     instruments[3] = drum2;
 
     var guitar1 = [];
-    guitar1[1] = new Howl({ src: ['Content/sound/guitar/162942__project16__c1-ff.wav'], preload: true });
-    guitar1[2] = new Howl({ src: ['Content/sound/guitar/162948__project16__d1-ff.wav'], preload: true });
-    guitar1[3] = new Howl({ src: ['Content/sound/guitar/162950__project16__d-1-ff.wav'], preload: true });
-    guitar1[4] = new Howl({ src: ['Content/sound/guitar/162957__project16__f2-ff.wav'], preload: true });
+    guitar1[1] = new Howl({ src: ['Content/sound/guitar/c1.wav'], preload: true });
+    guitar1[2] = new Howl({ src: ['Content/sound/guitar/d1.wav'], preload: true });
+    guitar1[3] = new Howl({ src: ['Content/sound/guitar/ds1.wav'], preload: true });
+    guitar1[4] = new Howl({ src: ['Content/sound/guitar/f1.wav'], preload: true });
     instruments[4] = guitar1;
 
     var guitar2 = [];
-    guitar2[1] = new Howl({ src: ['Content/sound/guitar/162961__project16__g2-ff.wav'], preload: true });
-    guitar2[2] = new Howl({ src: ['Content/sound/guitar/162966__project16__g-2-ff.wav'], preload: true });
-    guitar2[3] = new Howl({ src: ['Content/sound/guitar/162972__project16__a-2-ff.wav'], preload: true });
-    guitar2[4] = new Howl({ src: ['Content/sound/guitar/162978__project16__c2-ff.wav'], preload: true });
+    guitar2[1] = new Howl({ src: ['Content/sound/guitar/g1.wav'], preload: true });
+    guitar2[2] = new Howl({ src: ['Content/sound/guitar/gs1.wav'], preload: true });
+    guitar2[3] = new Howl({ src: ['Content/sound/guitar/as1.wav'], preload: true });
+    guitar2[4] = new Howl({ src: ['Content/sound/guitar/c2.wav'], preload: true });
     instruments[5] = guitar2;
 
-    var guitar3 = [];
-    guitar3[1] = new Howl({ src: ['Content/sound/guitar/162984__project16__d2-ff.wav'], preload: true });
-    guitar3[2] = new Howl({ src: ['Content/sound/guitar/162987__project16__d-2-ff.wav'], preload: true });
-    guitar3[3] = new Howl({ src: ['Content/sound/guitar/162998__project16__g3-ff.wav'], preload: true });
-    guitar3[4] = new Howl({ src: ['Content/sound/guitar/163008__project16__a-3-ff.wav'], preload: true });
-    instruments[6] = guitar3;
+    var bass1 = [];
+    bass1[1] = new Howl({ src: ['Content/sound/bass/162942__project16__c1-ff.wav'], preload: true });
+    bass1[2] = new Howl({ src: ['Content/sound/bass/162948__project16__d1-ff.wav'], preload: true });
+    bass1[3] = new Howl({ src: ['Content/sound/bass/162950__project16__d-1-ff.wav'], preload: true });
+    bass1[4] = new Howl({ src: ['Content/sound/bass/162957__project16__f2-ff.wav'], preload: true });
+    instruments[6] = bass1;
 
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
