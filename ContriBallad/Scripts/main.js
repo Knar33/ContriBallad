@@ -2,8 +2,9 @@ const UserContributions = {};
 const Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "c3",];
 const MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
 const MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
+const userID = "knar33";
 
-function GetUserContributions(userID) {
+function GetUserContributions() {
     //Make API call to https://github.com/users/userID/contributions
     var resData;
 
@@ -134,7 +135,7 @@ function PlaySong() {
 }
 
 $(window).on('load', function () {
-    GetUserContributions("knar33");
+    GetUserContributions();
     PlaySong();
 });
 
