@@ -7,7 +7,7 @@ var UserID = "knar33";
 function GetUserContributions(userID) {
     //Make API call to https://github.com/users/userID/contributions
     var resData;
-    UserID = userID.toLowerCase();;
+    UserID = userID.toLowerCase();
 
     $.ajax({
         url: "contributions/" + UserID,
@@ -65,14 +65,14 @@ function PlaySong() {
     var instruments = [];
 
     var scale = [];
-    var startingLetter = 
-    if (debugStartingIndex % 2 === 0) {
+    var startingLetter = UserID[0].charCodeAt(0) - 97;
+    if (startingLetter % 2 === 0) {
         scale = MinorScale;
     }
     else {
         scale = MajorScale;
     }
-    var startingNote = Math.floor(debugStartingIndex / 2);
+    var startingNote = Math.floor(startingLetter / 2);
 
     var piano1 = [];
     piano1[1] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
