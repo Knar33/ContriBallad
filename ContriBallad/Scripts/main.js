@@ -72,6 +72,10 @@ function GetUserContributions(userID) {
     }
     var startingNote = Math.floor(startingLetter / 2);
 
+    SetInstruments(scale, startingNote)
+}
+
+function SetInstruments(scale, startingNote) {
     var piano1 = [];
     piano1[1] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
     piano1[2] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
