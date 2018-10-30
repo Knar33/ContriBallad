@@ -19,7 +19,8 @@ function GetUserContributions(userID) {
         statusCode: {
             200: function (data) {
                 resData = data;
-                $("#graph").html(data);
+                $("#hiddenGraph").html(data);
+                $("#graph").html($(".js-calendar-graph-svg")[0].outerHTML)
             },
             400: function (data) {
                 resData = data;
