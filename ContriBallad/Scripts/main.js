@@ -2,15 +2,15 @@ var UserContributions = {};
 var Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "b1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "b2", "c3"];
 var MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
 var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
-var userID = "knar33";
-var debugStartingIndex = 10;
+var UserID = "knar33";
 
-function GetUserContributions() {
+function GetUserContributions(userID) {
     //Make API call to https://github.com/users/userID/contributions
     var resData;
+    UserID = userID.toLowerCase();;
 
     $.ajax({
-        url: "contributions/" + userID,
+        url: "contributions/" + UserID,
         method: 'get',
         dataType: 'html',
         async: false,
@@ -65,6 +65,7 @@ function PlaySong() {
     var instruments = [];
 
     var scale = [];
+    var startingLetter = 
     if (debugStartingIndex % 2 === 0) {
         scale = MinorScale;
     }
@@ -145,7 +146,7 @@ function PlaySong() {
 }
 
 $(window).on('load', function () {
-    GetUserContributions();
+    GetUserContributions("knar33");
     PlaySong();
 });
 
