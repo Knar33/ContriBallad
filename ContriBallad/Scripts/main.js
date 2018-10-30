@@ -5,7 +5,7 @@ function GetUserContributions(userID) {
     var resData;
 
     $.ajax({
-        url: "~/contributions/" + userID,
+        url: "contributions/" + userID,
         method: 'get',
         dataType: 'html',
         async: false,
@@ -57,6 +57,57 @@ function GetUserContributions(userID) {
 }
   
 function PlaySong() {
+    var instruments = [];
+
+    var piano1 = [];
+    piano1[1] = new Howl({ src: ['Content/sound/piano/39187__jobro__piano-ff-040.wav'] });
+    piano1[2] = new Howl({ src: ['Content/sound/piano/39189__jobro__piano-ff-042.wav'] });
+    piano1[3] = new Howl({ src: ['Content/sound/piano/39190__jobro__piano-ff-043.wav'] });
+    piano1[4] = new Howl({ src: ['Content/sound/piano/39193__jobro__piano-ff-045.wav'] });
+    instruments[1] = piano1;
+
+    var piano2 = [];
+    piano2[1] = new Howl({ src: ['Content/sound/piano/39195__jobro__piano-ff-047.wav'] });
+    piano2[2] = new Howl({ src: ['Content/sound/piano/39196__jobro__piano-ff-048.wav'] });
+    piano2[3] = new Howl({ src: ['Content/sound/piano/39198__jobro__piano-ff-050.wav'] });
+    piano2[4] = new Howl({ src: ['Content/sound/piano/39200__jobro__piano-ff-052.wav'] });
+    instruments[0] = piano2;
+
+    var drum1 = [];
+    drum1[1] = new Howl({ src: ['Content/sound/drum/snare/82238__kevoy__snare-drum.wav'] });
+    drum1[2] = new Howl({ src: ['Content/sound/drum/snare/387186__alexiero-1__ai-snare-20.wav'] });
+    drum1[3] = new Howl({ src: ['Content/sound/drum/snare/270156__theriavirra__04c-snare-smooth-cymbals-snares.wav'] });
+    drum1[4] = new Howl({ src: ['Content/sound/drum/snare/212208__alexthegr81__tapesnare-15.wav'] });
+    instruments[2] = drum1;
+
+    var drum2 = [];
+    drum2[1] = new Howl({ src: ['Content/sound/drum/cymbal/316874__dtrostli__tr-dhita-cymbal02.wav'] });
+    drum2[2] = new Howl({ src: ['Content/sound/drum/cymbal/116968__cbeeching__cymbal-bell-1.wav'] });
+    drum2[3] = new Howl({ src: ['Content/sound/drum/cymbal/102793__mhc__acoustic-ride-cymbal1.wav'] });
+    drum2[4] = new Howl({ src: ['Content/sound/drum/cymbal/339247__inspectorj__cymbal-14-hard-hit-a.wav'] });
+    instruments[3] = drum2;
+
+    var guitar1 = [];
+    guitar1[1] = new Howl({ src: ['Content/sound/guitar/162942__project16__c1-ff.wav'] });
+    guitar1[2] = new Howl({ src: ['Content/sound/guitar/162948__project16__d1-ff.wav'] });
+    guitar1[3] = new Howl({ src: ['Content/sound/guitar/162950__project16__d-1-ff.wav'] });
+    guitar1[4] = new Howl({ src: ['Content/sound/guitar/162957__project16__f2-ff.wav'] });
+    instruments[4] = guitar1;
+
+    var guitar2 = [];
+    guitar2[1] = new Howl({ src: ['Content/sound/guitar/162961__project16__g2-ff.wav'] });
+    guitar2[2] = new Howl({ src: ['Content/sound/guitar/162966__project16__g-2-ff.wav'] });
+    guitar2[3] = new Howl({ src: ['Content/sound/guitar/162972__project16__a-2-ff.wav'] });
+    guitar2[4] = new Howl({ src: ['Content/sound/guitar/162978__project16__c2-ff.wav'] });
+    instruments[5] = guitar2;
+
+    var guitar3 = [];
+    guitar3[1] = new Howl({ src: ['Content/sound/guitar/162984__project16__d2-ff.wav'] });
+    guitar3[2] = new Howl({ src: ['Content/sound/guitar/162987__project16__d-2-ff.wav'] });
+    guitar3[3] = new Howl({ src: ['Content/sound/guitar/162998__project16__g3-ff.wav'] });
+    guitar3[4] = new Howl({ src: ['Content/sound/guitar/163008__project16__a-3-ff.wav'] });
+    instruments[6] = guitar3;
+
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
 
@@ -66,38 +117,12 @@ function PlaySong() {
         }
 
         for (i = 0; i < 7; i++) {
-            var instrument = "piano";
-            switch(i) {
-                case 0:
-                    instrument = "piano2-";
-                    break;
-                case 1:
-                    instrument = "piano1-";
-                    break;
-                case 2:
-                    instrument = "drum1-";
-                    break;
-                case 3:
-                    instrument = "drum2-";
-                    break;
-                case 4:
-                    instrument = "guitar1-";
-                    break;
-                case 5:
-                    instrument = "guitar2-";
-                    break;
-                case 6:
-                    instrument = "guitar3-";
-                    break;
-            }
             var notePlusOffset = currentNote + i;
             
             if (notePlusOffset < totalNotes) {
                 var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
                 if (depth != 0) {
-                    var instrumentNote = instrument + depth;
-                    const newAudio = document.getElementById(instrumentNote).cloneNode();
-                    newAudio.play();
+                    instruments[i][depth].play();
                 }
             }
         }
