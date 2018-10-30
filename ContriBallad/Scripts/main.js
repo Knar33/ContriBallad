@@ -1,4 +1,5 @@
 const UserContributions = {};
+const Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "c3", ];
 
 function GetUserContributions(userID) {
     //Make API call to https://github.com/users/userID/contributions
@@ -87,26 +88,26 @@ function PlaySong() {
     drum2[4] = new Howl({ src: ['Content/sound/drum/cymbal/339247__inspectorj__cymbal-14-hard-hit-a.wav'], preload: true });
     instruments[3] = drum2;
 
+    var bass1 = [];
+    bass1[1] = new Howl({ src: ['Content/sound/bass/162942__project16__c1-ff.wav'], preload: true });
+    bass1[2] = new Howl({ src: ['Content/sound/bass/162948__project16__d1-ff.wav'], preload: true });
+    bass1[3] = new Howl({ src: ['Content/sound/bass/162950__project16__d-1-ff.wav'], preload: true });
+    bass1[4] = new Howl({ src: ['Content/sound/bass/162957__project16__f2-ff.wav'], preload: true });
+    instruments[4] = bass1;
+
     var guitar1 = [];
     guitar1[1] = new Howl({ src: ['Content/sound/guitar/c1.wav'], preload: true });
     guitar1[2] = new Howl({ src: ['Content/sound/guitar/d1.wav'], preload: true });
     guitar1[3] = new Howl({ src: ['Content/sound/guitar/ds1.wav'], preload: true });
     guitar1[4] = new Howl({ src: ['Content/sound/guitar/f1.wav'], preload: true });
-    instruments[4] = guitar1;
+    instruments[5] = guitar1;
 
     var guitar2 = [];
     guitar2[1] = new Howl({ src: ['Content/sound/guitar/g1.wav'], preload: true });
     guitar2[2] = new Howl({ src: ['Content/sound/guitar/gs1.wav'], preload: true });
     guitar2[3] = new Howl({ src: ['Content/sound/guitar/as1.wav'], preload: true });
     guitar2[4] = new Howl({ src: ['Content/sound/guitar/c2.wav'], preload: true });
-    instruments[5] = guitar2;
-
-    var bass1 = [];
-    bass1[1] = new Howl({ src: ['Content/sound/bass/162942__project16__c1-ff.wav'], preload: true });
-    bass1[2] = new Howl({ src: ['Content/sound/bass/162948__project16__d1-ff.wav'], preload: true });
-    bass1[3] = new Howl({ src: ['Content/sound/bass/162950__project16__d-1-ff.wav'], preload: true });
-    bass1[4] = new Howl({ src: ['Content/sound/bass/162957__project16__f2-ff.wav'], preload: true });
-    instruments[6] = bass1;
+    instruments[6] = guitar2;
 
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
