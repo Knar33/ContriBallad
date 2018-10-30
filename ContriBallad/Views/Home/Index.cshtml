@@ -2,6 +2,13 @@
     ViewBag.Title = "Home Page";
 }
 
+<form onsubmit="GetUserContributions($('#UserIDInput').val()); return false;">
+    <input type="text" id="UserIDInput" />
+    <input type="submit" value="Submit">
+</form>
+
+<br /><br />
+
 <div id="graph">
 </div>
 

@@ -1,3 +1,7 @@
 ﻿#hiddenGraph {
     display: none;
 }
+
+body {
+    padding: 50px;
+}

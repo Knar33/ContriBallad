@@ -7,7 +7,6 @@ var instruments = [];
 var UserID = "knar33";
 
 function GetUserContributions(userID) {
-    //Make API call to https://github.com/users/userID/contributions
     var resData;
     UserID = userID.toLowerCase();
 
@@ -20,7 +19,7 @@ function GetUserContributions(userID) {
             200: function (data) {
                 resData = data;
                 $("#hiddenGraph").html(data);
-                $("#graph").html($(".js-calendar-graph-svg")[0].outerHTML)
+                $("#graph").html($("#hiddenGraph .js-calendar-graph-svg")[0].outerHTML)
             },
             400: function (data) {
                 resData = data;
@@ -28,8 +27,7 @@ function GetUserContributions(userID) {
             }
         }
     });
-
-    //Parse the data into an array of Day/Contributions
+    
     const calendarGraph = $(".js-calendar-graph")[0];
     const dailyContributions = $(".day");
     const contributions = [];
@@ -60,7 +58,6 @@ function GetUserContributions(userID) {
         contributions.push(newContribution); 
     }
     
-    //set that array to UserContributions.DailyContributions
     UserContributions.DailyContributions = contributions;
 
     var scale = [];
