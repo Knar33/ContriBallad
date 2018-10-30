@@ -259,11 +259,11 @@
     <Content Include="Content\sound\piano\ds2.wav" />
     <Content Include="Content\sound\piano\e1.wav" />
     <Content Include="Content\sound\piano\e2.wav" />
-    <Content Include="Content\sound\piano\f.wav" />
+    <Content Include="Content\sound\piano\f1.wav" />
     <Content Include="Content\sound\piano\f2.wav" />
     <Content Include="Content\sound\piano\fs1.wav" />
     <Content Include="Content\sound\piano\fs2.wav" />
-    <Content Include="Content\sound\piano\g.wav" />
+    <Content Include="Content\sound\piano\g1.wav" />
     <Content Include="Content\sound\piano\g2.wav" />
     <Content Include="Content\sound\piano\gs1.wav" />
     <Content Include="Content\sound\piano\gs2.wav" />
