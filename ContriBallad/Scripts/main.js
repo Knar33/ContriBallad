@@ -1,9 +1,9 @@
-const UserContributions = {};
-const Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "c3",];
-const MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
-const MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
-const userID = "knar33";
-const debugStartingIndex = 0;
+var UserContributions = {};
+var Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "b1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "b2", "c3",];
+var MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
+var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
+var userID = "knar33";
+var debugStartingIndex = 10;
 
 function GetUserContributions() {
     //Make API call to https://github.com/users/userID/contributions
@@ -66,24 +66,25 @@ function PlaySong() {
 
     var scale = [];
     if (debugStartingIndex % 2 == 0) {
-        scale = MajorScale;
-    }
-    else {
         scale = MinorScale;
     }
+    else {
+        scale = MajorScale;
+    }
+    var startingNote = Math.floor(debugStartingIndex / 2);
 
     var piano1 = [];
-    piano1[1] = new Howl({ src: ['Content/sound/piano/' +  + '.wav'], preload: true });
-    piano1[2] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
-    piano1[3] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
-    piano1[4] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
+    piano1[1] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
+    piano1[2] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
+    piano1[3] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
+    piano1[4] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
     instruments[1] = piano1;
 
     var piano2 = [];
-    piano2[1] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
-    piano2[2] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
-    piano2[3] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
-    piano2[4] = new Howl({ src: ['Content/sound/piano/' + + '.wav'], preload: true });
+    piano2[1] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
+    piano2[2] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[5]] + '.wav'], preload: true });
+    piano2[3] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
+    piano2[4] = new Howl({ src: ['Content/sound/piano/' + Notes[startingNote + scale[7]] + '.wav'], preload: true });
     instruments[0] = piano2;
 
     var drum1 = [];
@@ -101,24 +102,24 @@ function PlaySong() {
     instruments[3] = drum2;
 
     var bass1 = [];
-    bass1[1] = new Howl({ src: ['Content/sound/bass/' + + '.wav'], preload: true });
-    bass1[2] = new Howl({ src: ['Content/sound/bass/' + + '.wav'], preload: true });
-    bass1[3] = new Howl({ src: ['Content/sound/bass/' + + '.wav'], preload: true });
-    bass1[4] = new Howl({ src: ['Content/sound/bass/' + + '.wav'], preload: true });
+    bass1[1] = new Howl({ src: ['Content/sound/bass/' + Notes[startingNote + scale[0]]+ '.wav'], preload: true });
+    bass1[2] = new Howl({ src: ['Content/sound/bass/' + Notes[startingNote + scale[1]]+ '.wav'], preload: true });
+    bass1[3] = new Howl({ src: ['Content/sound/bass/' + Notes[startingNote + scale[2]]+ '.wav'], preload: true });
+    bass1[4] = new Howl({ src: ['Content/sound/bass/' + Notes[startingNote + scale[3]]+ '.wav'], preload: true });
     instruments[4] = bass1;
 
     var guitar1 = [];
-    guitar1[1] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
-    guitar1[2] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
-    guitar1[3] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
-    guitar1[4] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
+    guitar1[1] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[0]]+ '.wav'], preload: true });
+    guitar1[2] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[1]]+ '.wav'], preload: true });
+    guitar1[3] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[2]]+ '.wav'], preload: true });
+    guitar1[4] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[3]]+ '.wav'], preload: true });
     instruments[5] = guitar1;
 
     var guitar2 = [];
-    guitar2[1] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
-    guitar2[2] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
-    guitar2[3] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
-    guitar2[4] = new Howl({ src: ['Content/sound/guitar/' + + '.wav'], preload: true });
+    guitar2[1] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
+    guitar2[2] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[5]] + '.wav'], preload: true });
+    guitar2[3] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
+    guitar2[4] = new Howl({ src: ['Content/sound/guitar/' + Notes[startingNote + scale[7]] + '.wav'], preload: true });
     instruments[6] = guitar2;
 
     var totalNotes = UserContributions.DailyContributions.length;
