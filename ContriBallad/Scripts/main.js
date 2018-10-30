@@ -5,7 +5,7 @@ function GetUserContributions(userID) {
     var resData;
 
     $.ajax({
-        url: "contributions/" + userID,
+        url: "~/contributions/" + userID,
         method: 'get',
         dataType: 'html',
         async: false,
