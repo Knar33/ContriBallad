@@ -2,6 +2,7 @@ var UserContributions = {};
 var Notes = ["c1", "cs1", "d1", "ds1", "e1", "f1", "fs1", "g1", "gs1", "a1", "as1", "b1", "c2", "cs2", "d2", "ds2", "e2", "f2", "fs2", "g2", "gs2", "a2", "as2", "b2", "c3"];
 var MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
 var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
+var DoubleHarmonicScale = [0, 3, 4, 5, 8, 9, 11, 12];
 var instruments = [];
 var UserID = "knar33";
 

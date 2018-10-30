@@ -35,7 +35,9 @@ function GetUserContributions(userID) {
 GetContributions();
 
 TODO:
-get the contribution chart dynamically from github
-dynamic scale based on the starting letter of the user: a = c major, b = c minor, c = c# major, d = c# minor etc
-dynamic drum kit based on starting letter too ?
-animation to show which week the song is playing
+x	get the contribution chart dynamically from github
+x	dynamic scale based on the starting letter of the user: a = c major, b = c minor, c = c# major, d = c# minor etc
+	isolate the part of the html we need instead of displaying everything from the Contributions endpoint
+	animation to show which week the song is playing
+	add attribution for sound samples
+	dynamic drum kit based on starting letter too ?
