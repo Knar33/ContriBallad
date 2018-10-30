@@ -40,17 +40,17 @@ function PlaySong() {
     var instruments = [];
 
     var piano1 = [];
-    piano1[1] = new Howl({ src: ['ContriBallad/Content/sound/piano/39187__jobro__piano-ff-040.wav'], preload: true });
-    piano1[2] = new Howl({ src: ['ContriBallad/Content/sound/piano/39189__jobro__piano-ff-042.wav'], preload: true });
-    piano1[3] = new Howl({ src: ['ContriBallad/Content/sound/piano/39190__jobro__piano-ff-043.wav'], preload: true });
-    piano1[4] = new Howl({ src: ['ContriBallad/Content/sound/piano/39193__jobro__piano-ff-045.wav'], preload: true });
+    piano1[1] = new Howl({ src: ['ContriBallad/Content/sound/piano/c1.wav'], preload: true });
+    piano1[2] = new Howl({ src: ['ContriBallad/Content/sound/piano/d1.wav'], preload: true });
+    piano1[3] = new Howl({ src: ['ContriBallad/Content/sound/piano/ds1'], preload: true });
+    piano1[4] = new Howl({ src: ['ContriBallad/Content/sound/piano/f1.wav'], preload: true });
     instruments[1] = piano1;
 
     var piano2 = [];
-    piano2[1] = new Howl({ src: ['ContriBallad/Content/sound/piano/39195__jobro__piano-ff-047.wav'], preload: true });
-    piano2[2] = new Howl({ src: ['ContriBallad/Content/sound/piano/39196__jobro__piano-ff-048.wav'], preload: true });
-    piano2[3] = new Howl({ src: ['ContriBallad/Content/sound/piano/39198__jobro__piano-ff-050.wav'], preload: true });
-    piano2[4] = new Howl({ src: ['ContriBallad/Content/sound/piano/39200__jobro__piano-ff-052.wav'], preload: true });
+    piano2[1] = new Howl({ src: ['ContriBallad/Content/sound/piano/g1.wav'], preload: true });
+    piano2[2] = new Howl({ src: ['ContriBallad/Content/sound/piano/gs1.wav'], preload: true });
+    piano2[3] = new Howl({ src: ['ContriBallad/Content/sound/piano/as1.wav'], preload: true });
+    piano2[4] = new Howl({ src: ['ContriBallad/Content/sound/piano/c2.wav'], preload: true });
     instruments[0] = piano2;
 
     var drum1 = [];
@@ -68,24 +68,24 @@ function PlaySong() {
     instruments[3] = drum2;
 
     var guitar1 = [];
-    guitar1[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162942__project16__c1-ff.wav'], preload: true });
-    guitar1[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162948__project16__d1-ff.wav'], preload: true });
-    guitar1[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162950__project16__d-1-ff.wav'], preload: true });
-    guitar1[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162957__project16__f2-ff.wav'], preload: true });
+    guitar1[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/c1.wav'], preload: true });
+    guitar1[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/d1.wav'], preload: true });
+    guitar1[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/ds1.wav'], preload: true });
+    guitar1[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/f1.wav'], preload: true });
     instruments[4] = guitar1;
 
     var guitar2 = [];
-    guitar2[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162961__project16__g2-ff.wav'], preload: true });
-    guitar2[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162966__project16__g-2-ff.wav'], preload: true });
-    guitar2[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162972__project16__a-2-ff.wav'], preload: true });
-    guitar2[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162978__project16__c2-ff.wav'], preload: true });
+    guitar2[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/g1.wav'], preload: true });
+    guitar2[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/gs1.wav'], preload: true });
+    guitar2[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/as1.wav'], preload: true });
+    guitar2[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/c2.wav'], preload: true });
     instruments[5] = guitar2;
 
     var guitar3 = [];
-    guitar3[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162984__project16__d2-ff.wav'], preload: true });
-    guitar3[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162987__project16__d-2-ff.wav'], preload: true });
-    guitar3[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/162998__project16__g3-ff.wav'], preload: true });
-    guitar3[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/163008__project16__a-3-ff.wav'], preload: true });
+    guitar3[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/c1.wav'], preload: true });
+    guitar3[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/d1.wav'], preload: true });
+    guitar3[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/ds1.wav'], preload: true });
+    guitar3[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/f1.wav'], preload: true });
     instruments[6] = guitar3;
 
     var totalNotes = UserContributions.DailyContributions.length;
