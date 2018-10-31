@@ -4,10 +4,12 @@ var MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
 var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
 var DoubleHarmonicScale = [0, 3, 4, 5, 8, 9, 11, 12];
 var instruments = [];
+var oldColors = [];
 var UserID = "knar33";
 
 function GetUserContributions(userID) {
     var resData;
+    oldColors = [];
 
     $.ajax({
         url: "contributions/" + userID.toLowerCase(),
@@ -141,7 +143,6 @@ function PlaySong() {
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
 
-    oldColors = [];
     setInterval(function() {
         if (currentNote >= totalNotes) {
             currentNote = 0;
