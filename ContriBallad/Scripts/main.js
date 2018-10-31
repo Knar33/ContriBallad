@@ -40,8 +40,9 @@ function GetUserContributions(userID) {
             count: day.getAttribute("data-count")
         };
 
+        //There are two colors for each case because of Halloween color changes. 
+        //If any other color changes happen, additional cases need to be added.
         switch(day.getAttribute("fill")) {
-            case "#ebedf0":
             case "#ebedf0":
                 newContribution.contributionDepth = 0;
                 day.style.fill = "#ebedf0";
