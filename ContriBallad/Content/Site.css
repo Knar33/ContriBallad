@@ -3,5 +3,9 @@
 }
 
 body {
-    padding: 50px;
+    padding: 20px;
+}
+
+.wday, .month {
+    font-size: 10px;
 }

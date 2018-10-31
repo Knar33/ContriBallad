@@ -27,7 +27,7 @@ function GetUserContributions(userID) {
             },
             400: function (data) {
                 resData = data;
-                $("#errorBox").html("That user does not exist.");
+                $("#errorBox").html("<span style='color: red;'>That user does not exist.</span>");
             }
         }
     });
