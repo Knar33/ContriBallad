@@ -80,10 +80,10 @@ function GetUserContributions(userID) {
     var startingLetter;
 
     if (UserID[0] == '-') {
-        startingLetter = UserID.charCodeAt(0) - 97;
+        startingLetter = 0;
     }
     else {
-        startingLetter = 0;
+        startingLetter = UserID.charCodeAt(0) - 97;
     }
 
     if (startingLetter % 2 === 0) {
