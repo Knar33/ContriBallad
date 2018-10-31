@@ -9,3 +9,7 @@ body {
 .wday, .month {
     font-size: 10px;
 }
+
+#graph {
+    padding: 10px;
+}
