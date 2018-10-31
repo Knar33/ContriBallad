@@ -5,7 +5,8 @@ var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
 var DoubleHarmonicScale = [0, 3, 4, 5, 8, 9, 11, 12];
 var instruments = [];
 var oldColors = [];
-var UserID = "knar33";
+var urlParams = new URLSearchParams(window.location.search);
+var UserID = urlParams.get("u") || "knar33";
 
 function GetUserContributions(userID) {
     var resData;
@@ -198,7 +199,7 @@ function PlaySong() {
 }
 
 $(window).on('load', function () {
-    GetUserContributions("knar33");
+    GetUserContributions(UserID);
     PlaySong();
 });
 
