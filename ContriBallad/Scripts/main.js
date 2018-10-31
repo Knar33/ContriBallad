@@ -181,7 +181,7 @@ function PlaySong() {
                 $("#graph rect").eq(notePlusOffset - 7).css("fill", oldColors[i]);
             }
             else {
-                $("#graph rect").eq(363 + i).css("fill", oldColors[i]);
+                $("#graph rect").eq(364 + i).css("fill", oldColors[i]);
             }
             oldColors[i] = oldColor;
         }
