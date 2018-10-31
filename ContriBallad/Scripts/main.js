@@ -8,23 +8,24 @@ var UserID = "knar33";
 
 function GetUserContributions(userID) {
     var resData;
-    UserID = userID.toLowerCase();
 
     $.ajax({
-        url: "contributions/" + UserID,
+        url: "contributions/" + userID.toLowerCase(),
         method: 'get',
         dataType: 'html',
         async: false,
         statusCode: {
             200: function (data) {
                 resData = data;
+                UserID = userID.toLowerCase();
                 $("#hiddenGraph").html(data);
                 $("#graph").html($("#hiddenGraph .js-calendar-graph-svg")[0].outerHTML);
                 $("#hiddenGraph").html("");
+                $("#errorBox").html("");
             },
             400: function (data) {
                 resData = data;
-                $("#graph").html("That user does not exist.");
+                $("#errorBox").html("That user does not exist.");
             }
         }
     });
