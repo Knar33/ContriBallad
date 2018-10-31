@@ -29,8 +29,7 @@ function GetUserContributions(userID) {
             }
         }
     });
-
-    stripHalloweenColors();
+    
     const calendarGraph = $(".js-calendar-graph")[0];
     const dailyContributions = $(".day");
     const contributions = [];
@@ -45,22 +44,27 @@ function GetUserContributions(userID) {
             case "#ebedf0":
             case "#ebedf0":
                 newContribution.contributionDepth = 0;
+                day.style.fill = "#ebedf0";
                 break;
             case "#c6e48b":
             case "#ffee4a":
                 newContribution.contributionDepth = 1;
+                day.style.fill = "#c6e48b";
                 break;
             case "#7bc96f":
             case "#ffc501":
                 newContribution.contributionDepth = 2;
+                day.style.fill = "#7bc96f";
                 break;
             case "#239a3b":
             case "#fe9600":
                 newContribution.contributionDepth = 3;
+                day.style.fill = "#239a3b";
                 break;
             case "#196127":
             case "#03001c":
                 newContribution.contributionDepth = 4;
+                day.style.fill = "#196127";
                 break;
         }
         contributions.push(newContribution); 
@@ -189,30 +193,6 @@ function PlaySong() {
         }
         currentNote += 7;
     }, 300);
-}
-
-function stripHalloweenColors() {
-    for (i = 0; i < $("#graph rect").length; i++) {
-        var nonHalloweenColor;
-        switch ($("#graph rect").eq(i).attr("fill")) {
-            case "#ebedf0":
-                nonHalloweenColor = "#ebedf0";
-                break;
-            case "#ffee4a":
-                nonHalloweenColor = "#c6e48b";
-                break;
-            case "#ffc501":
-                nonHalloweenColor = "#7bc96f";
-                break;
-            case "#fe9600":
-                nonHalloweenColor = "#239a3b";
-                break;
-            case "#03001c":
-                nonHalloweenColor = "#196127";
-                break;
-        }
-        $("#graph rect").eq(i).css("fill", nonHalloweenColor);
-    }
 }
 
 $(window).on('load', function () {
