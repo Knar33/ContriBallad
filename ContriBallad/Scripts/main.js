@@ -41,18 +41,23 @@ function GetUserContributions(userID) {
 
         switch(day.getAttribute("fill")) {
             case "#ebedf0":
+            case "#ebedf0":
                 newContribution.contributionDepth = 0;
                 break;
             case "#c6e48b":
+            case "#ffee4a":
                 newContribution.contributionDepth = 1;
                 break;
             case "#7bc96f":
+            case "#ffc501":
                 newContribution.contributionDepth = 2;
                 break;
             case "#239a3b":
+            case "#fe9600":
                 newContribution.contributionDepth = 3;
                 break;
             case "#196127":
+            case "#03001c":
                 newContribution.contributionDepth = 4;
                 break;
         }
@@ -129,6 +134,7 @@ function PlaySong() {
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
 
+    oldColors = [];
     setInterval(function() {
         if (currentNote >= totalNotes) {
             currentNote = 0;
@@ -136,13 +142,48 @@ function PlaySong() {
 
         for (i = 0; i < 7; i++) {
             var notePlusOffset = currentNote + i;
-            
+
+            var newColor
+            var oldColor
             if (notePlusOffset < totalNotes) {
                 var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
+                
+                switch (depth) {
+                    case 0:
+                        oldColor = "#ebedf0";
+                        newColor = "#f9ccf5";
+                        break;
+                    case 1:
+                        oldColor = "#c6e48b";
+                        newColor = "#ffa5f7";
+                        break;
+                    case 2:
+                        oldColor = "#7bc96f";
+                        newColor = "#ff7ff3";
+                        break;
+                    case 3:
+                        oldColor = "#239a3b";
+                        newColor = "#fc53ec";
+                        break;
+                    case 4:
+                        oldColor = "#196127";
+                        newColor = "#910083";
+                        break;
+                }
+                
                 if (depth !== 0) {
                     instruments[i][depth].play();
                 }
             }
+
+            $("#graph rect").eq(notePlusOffset).css("fill", newColor);
+            if (notePlusOffset > 6) {
+                $("#graph rect").eq(notePlusOffset - 7).css("fill", oldColors[i]);
+            }
+            else {
+                $("#graph rect").eq(363 + i).css("fill", oldColors[i]);
+            }
+            oldColors[i] = oldColor;
         }
         currentNote += 7;
     }, 300);
