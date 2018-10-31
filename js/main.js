@@ -26,7 +26,7 @@ function GetUserContributions(userID) {
                 $("#hiddenGraph").html("");
                 $("#errorBox").html("");
             },
-            400: function (data) {
+            404: function (data) {
                 resData = data;
                 $("#errorBox").html("<span style='color: red;'>That user does not exist.</span>");
             }
@@ -78,7 +78,7 @@ function GetUserContributions(userID) {
 
     var scale = [];
     var startingLetter;
-    
+
     if (UserID[0] == '-') {
         startingLetter = UserID.charCodeAt(0) - 97;
     }
