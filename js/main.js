@@ -12,7 +12,7 @@ function GetUserContributions(userID) {
     oldColors = [];
 
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://github.com/users/knar33/contributions",
+        url: "https://cors-anywhere.herokuapp.com/https://github.com/users/" + userID.toLowerCase() + "/contributions",
         method: 'get',
         dataType: 'text',
         async: false,
