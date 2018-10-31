@@ -4,11 +4,33 @@ var MinorScale = [0, 2, 3, 5, 7, 8, 10, 12];
 var MajorScale = [0, 2, 4, 5, 7, 9, 11, 12];
 var DoubleHarmonicScale = [0, 3, 4, 5, 8, 9, 11, 12];
 var instruments = [];
+var oldColors = [];
 var UserID = "knar33";
 
 function GetUserContributions(userID) {
     var resData;
-    UserID = userID.toLowerCase();
+    oldColors = [];
+
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/https://github.com/users/knar33/contributions",
+        method: 'get',
+        dataType: 'text',
+        async: false,
+        statusCode: {
+            200: function (data) {
+                resData = data;
+                UserID = userID.toLowerCase();
+                $("#hiddenGraph").html(data);
+                $("#graph").html($("#hiddenGraph .js-calendar-graph-svg")[0].outerHTML);
+                $("#hiddenGraph").html("");
+                $("#errorBox").html("");
+            },
+            400: function (data) {
+                resData = data;
+                $("#errorBox").html("<span style='color: red;'>That user does not exist.</span>");
+            }
+        }
+    });
     
     const calendarGraph = $(".js-calendar-graph")[0];
     const dailyContributions = $(".day");
@@ -20,26 +42,32 @@ function GetUserContributions(userID) {
             count: day.getAttribute("data-count")
         };
 
+        //There are two colors for each case because of Halloween color changes. 
+        //If any other color changes happen, additional cases need to be added.
         switch(day.getAttribute("fill")) {
             case "#ebedf0":
-            case "#ebedf0":
                 newContribution.contributionDepth = 0;
+                day.style.fill = "#ebedf0";
                 break;
             case "#c6e48b":
             case "#ffee4a":
                 newContribution.contributionDepth = 1;
+                day.style.fill = "#c6e48b";
                 break;
             case "#7bc96f":
             case "#ffc501":
                 newContribution.contributionDepth = 2;
+                day.style.fill = "#7bc96f";
                 break;
             case "#239a3b":
             case "#fe9600":
                 newContribution.contributionDepth = 3;
+                day.style.fill = "#239a3b";
                 break;
             case "#196127":
             case "#03001c":
                 newContribution.contributionDepth = 4;
+                day.style.fill = "#196127";
                 break;
         }
         contributions.push(newContribution); 
@@ -62,52 +90,52 @@ function GetUserContributions(userID) {
 
 function SetInstruments(scale, startingNote) {
     var piano1 = [];
-    piano1[1] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
-    piano1[2] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
-    piano1[3] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
-    piano1[4] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
+    piano1[1] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
+    piano1[2] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
+    piano1[3] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
+    piano1[4] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
     instruments[1] = piano1;
 
     var piano2 = [];
-    piano2[1] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
-    piano2[2] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[5]] + '.wav'], preload: true });
-    piano2[3] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
-    piano2[4] = new Howl({ src: ['ContriBallad/Content/sound/piano/' + Notes[startingNote + scale[7]] + '.wav'], preload: true });
+    piano2[1] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
+    piano2[2] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[5]] + '.wav'], preload: true });
+    piano2[3] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
+    piano2[4] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[7]] + '.wav'], preload: true });
     instruments[0] = piano2;
 
     var drum1 = [];
-    drum1[1] = new Howl({ src: ['ContriBallad/Content/sound/drum/snare/82238__kevoy__snare-drum.wav'], preload: true });
-    drum1[2] = new Howl({ src: ['ContriBallad/Content/sound/drum/snare/387186__alexiero-1__ai-snare-20.wav'], preload: true });
-    drum1[3] = new Howl({ src: ['ContriBallad/Content/sound/drum/snare/270156__theriavirra__04c-snare-smooth-cymbals-snares.wav'], preload: true });
-    drum1[4] = new Howl({ src: ['ContriBallad/Content/sound/drum/snare/212208__alexthegr81__tapesnare-15.wav'], preload: true });
+    drum1[1] = new Howl({ src: ['sound/drum/snare/82238__kevoy__snare-drum.wav'], preload: true });
+    drum1[2] = new Howl({ src: ['sound/drum/snare/387186__alexiero-1__ai-snare-20.wav'], preload: true });
+    drum1[3] = new Howl({ src: ['sound/drum/snare/270156__theriavirra__04c-snare-smooth-cymbals-snares.wav'], preload: true });
+    drum1[4] = new Howl({ src: ['sound/drum/snare/212208__alexthegr81__tapesnare-15.wav'], preload: true });
     instruments[2] = drum1;
 
     var drum2 = [];
-    drum2[1] = new Howl({ src: ['ContriBallad/Content/sound/drum/cymbal/316874__dtrostli__tr-dhita-cymbal02.wav'], preload: true });
-    drum2[2] = new Howl({ src: ['ContriBallad/Content/sound/drum/cymbal/116968__cbeeching__cymbal-bell-1.wav'], preload: true });
-    drum2[3] = new Howl({ src: ['ContriBallad/Content/sound/drum/cymbal/102793__mhc__acoustic-ride-cymbal1.wav'], preload: true });
-    drum2[4] = new Howl({ src: ['ContriBallad/Content/sound/drum/cymbal/339247__inspectorj__cymbal-14-hard-hit-a.wav'], preload: true });
+    drum2[1] = new Howl({ src: ['sound/drum/cymbal/316874__dtrostli__tr-dhita-cymbal02.wav'], preload: true });
+    drum2[2] = new Howl({ src: ['sound/drum/cymbal/116968__cbeeching__cymbal-bell-1.wav'], preload: true });
+    drum2[3] = new Howl({ src: ['sound/drum/cymbal/102793__mhc__acoustic-ride-cymbal1.wav'], preload: true });
+    drum2[4] = new Howl({ src: ['sound/drum/cymbal/339247__inspectorj__cymbal-14-hard-hit-a.wav'], preload: true });
     instruments[3] = drum2;
 
     var bass1 = [];
-    bass1[1] = new Howl({ src: ['ContriBallad/Content/sound/bass/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
-    bass1[2] = new Howl({ src: ['ContriBallad/Content/sound/bass/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
-    bass1[3] = new Howl({ src: ['ContriBallad/Content/sound/bass/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
-    bass1[4] = new Howl({ src: ['ContriBallad/Content/sound/bass/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
+    bass1[1] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
+    bass1[2] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
+    bass1[3] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
+    bass1[4] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
     instruments[4] = bass1;
 
     var guitar1 = [];
-    guitar1[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
-    guitar1[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
-    guitar1[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
-    guitar1[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
+    guitar1[1] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
+    guitar1[2] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
+    guitar1[3] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
+    guitar1[4] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
     instruments[5] = guitar1;
 
     var guitar2 = [];
-    guitar2[1] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
-    guitar2[2] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[5]] + '.wav'], preload: true });
-    guitar2[3] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
-    guitar2[4] = new Howl({ src: ['ContriBallad/Content/sound/guitar/' + Notes[startingNote + scale[7]] + '.wav'], preload: true });
+    guitar2[1] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
+    guitar2[2] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[5]] + '.wav'], preload: true });
+    guitar2[3] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
+    guitar2[4] = new Howl({ src: ['sound/guitar/' + Notes[startingNote + scale[7]] + '.wav'], preload: true });
     instruments[6] = guitar2;
 }
   
@@ -115,7 +143,6 @@ function PlaySong() {
     var totalNotes = UserContributions.DailyContributions.length;
     var currentNote = 0;
 
-    oldColors = [];
     setInterval(function() {
         if (currentNote >= totalNotes) {
             currentNote = 0;
