@@ -15,29 +15,10 @@ Functions:
 		Either goes through each week once then stops, or loops endlessly (would require pauseSong function)
 
 
-
-
-function GetUserContributions(userID) {
-	const calendarGraph = document.getElementsByClassName('js-calendar-graph')[0];
-	const dailyContributions = calendarGraph.getElementsByClassName('day');
-	const days = [];
-
-	for (let day of dailyContributions){
-		days.push({
-		   date: day.getAttribute('data-date'),
-		   count: day.getAttribute('data-count')
-		}); 
-	}
-	
-	return days;
-}
-
-GetContributions();
-
 TODO:
 x	get the contribution chart dynamically from github
 x	dynamic scale based on the starting letter of the user: a = c major, b = c minor, c = c# major, d = c# minor etc
-	isolate the part of the html we need instead of displaying everything from the Contributions endpoint
+x	isolate the part of the html we need instead of displaying everything from the Contributions endpoint
 	animation to show which week the song is playing
 	add attribution for sound samples
 	dynamic drum kit based on starting letter too ?
