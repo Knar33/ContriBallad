@@ -19,6 +19,7 @@ TODO:
 x	get the contribution chart dynamically from github
 x	dynamic scale based on the starting letter of the user: a = c major, b = c minor, c = c# major, d = c# minor etc
 x	isolate the part of the html we need instead of displaying everything from the Contributions endpoint
-	animation to show which week the song is playing
-	add attribution for sound samples
+x	animation to show which week the song is playing
+	strip halloween
 	dynamic drum kit based on starting letter too ?
+	add attribution for sound samples
