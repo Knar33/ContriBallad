@@ -16,6 +16,7 @@ Functions:
 
 
 TODO:
+	There should probably be a play button before any sound is played.....
 x	get the contribution chart dynamically from github
 x	dynamic scale based on the starting letter of the user: a = c major, b = c minor, c = c# major, d = c# minor etc
 x	isolate the part of the html we need instead of displaying everything from the Contributions endpoint
