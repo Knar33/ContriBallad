@@ -11,6 +11,7 @@ var SongPaused = true;
 var currentNote = 0;
 
 function GetUserContributions(userID) {
+    $("#graph").html("Loading user data from Github...<br><img src='images/loading.gif' />");
     pauseSong();
     currentNote = 0;
     var resData;
