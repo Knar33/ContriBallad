@@ -29,8 +29,7 @@ x	change bass notes
 		Piano: https://freesound.org/people/jobro/packs/2489/
 		Guitar: https://freesound.org/search/?g=1&q=electro&f=%20grouping_pack:%2215407_Electro+acoustique+Sherwood+SH887%22
 		bass: https://freesound.org/search/?g=1&q=bass&f=%20grouping_pack:%2214708_BassGuitar-GretschElectromatic-multisampled%22
-		Drum:
-			Cymbal:
+		Cymbal:
 				https://freesound.org/people/mhc/sounds/102793/
 				https://freesound.org/people/CBeeching/sounds/116968/
 				https://freesound.org/people/dtrostli/sounds/316874/
@@ -47,7 +46,7 @@ x	change bass notes
 				https://freesound.org/people/datwilightz/sounds/193545/
 				https://freesound.org/people/FranciscoPadilla/sounds/22760/
 				https://freesound.org/people/altemark/sounds/207956/
-			Snare:
+		Snare:
 				https://freesound.org/people/KEVOY/sounds/82238/
 				https://freesound.org/people/alexthegr81/sounds/212208/
 				https://freesound.org/people/Theriavirra/sounds/270156/
