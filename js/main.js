@@ -8,8 +8,11 @@ var oldColors = [];
 var urlParams = new URLSearchParams(window.location.search);
 var UserID = urlParams.get("u") || "knar33";
 var SongPaused = true;
+var currentNote = 0;
 
 function GetUserContributions(userID) {
+    pauseSong();
+    currentNote = 0;
     var resData;
     oldColors = [];
 
@@ -151,7 +154,6 @@ function SetInstruments(scale, startingNote) {
   
 function PlaySong() {
     var totalNotes = UserContributions.DailyContributions.length;
-    var currentNote = 0;
 
     setInterval(function() {
         if (!SongPaused) {
