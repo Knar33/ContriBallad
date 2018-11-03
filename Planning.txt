@@ -16,7 +16,7 @@ Functions:
 
 
 TODO:
-	There should probably be a play button before any sound is played.....
+x	There should probably be a play button before any sound is played.....
 x	get the contribution chart dynamically from github
 x	dynamic scale based on the starting letter of the user: a = c major, b = c minor, c = c# major, d = c# minor etc
 x	isolate the part of the html we need instead of displaying everything from the Contributions endpoint
@@ -24,5 +24,43 @@ x	animation to show which week the song is playing
 x	strip halloween
 x	Add an indication that the contribution chart is being loaded
 	dynamic drum kit based on starting letter too ?
-	change bass notes
+x	change bass notes
 	add attribution for sound samples
+		Piano: https://freesound.org/people/jobro/packs/2489/
+		Guitar: https://freesound.org/search/?g=1&q=electro&f=%20grouping_pack:%2215407_Electro+acoustique+Sherwood+SH887%22
+		bass: https://freesound.org/search/?g=1&q=bass&f=%20grouping_pack:%2214708_BassGuitar-GretschElectromatic-multisampled%22
+		Drum:
+			Cymbal:
+				https://freesound.org/people/mhc/sounds/102793/
+				https://freesound.org/people/CBeeching/sounds/116968/
+				https://freesound.org/people/dtrostli/sounds/316874/
+				https://freesound.org/people/InspectorJ/sounds/339247/
+				https://freesound.org/people/Veiler/sounds/209868/
+				https://freesound.org/people/ltibbits/sounds/16238/	
+				https://freesound.org/people/ceich93/sounds/315622/
+				https://freesound.org/people/-zin-/sounds/34800/
+				https://freesound.org/people/Thirsk/sounds/121097/
+				https://freesound.org/people/Theriavirra/sounds/270138/
+				https://freesound.org/people/deLargeBC/sounds/388432/
+				https://freesound.org/people/Stickinthemud/sounds/28048/
+				https://freesound.org/people/steffcaffrey/sounds/435074/
+				https://freesound.org/people/datwilightz/sounds/193545/
+				https://freesound.org/people/FranciscoPadilla/sounds/22760/
+				https://freesound.org/people/altemark/sounds/207956/
+			Snare:
+				https://freesound.org/people/KEVOY/sounds/82238/
+				https://freesound.org/people/alexthegr81/sounds/212208/
+				https://freesound.org/people/Theriavirra/sounds/270156/
+				https://freesound.org/people/AlexIero_1/sounds/387186/
+				https://freesound.org/people/gnuoctathorpe/sounds/404865/
+				https://freesound.org/people/shpira/sounds/323609/
+				https://freesound.org/people/Seidhepriest/sounds/232014/
+				https://freesound.org/people/Zajo/sounds/4831/
+				https://freesound.org/people/meisterjaan/sounds/321132/
+				https://freesound.org/people/CorrodedMaster/sounds/111202/
+				https://freesound.org/people/sherlock/sounds/22641/
+				https://freesound.org/people/menegass/sounds/100051/
+				https://freesound.org/people/Speedenza/sounds/205934/
+				https://freesound.org/people/OllieOllie/sounds/264020/
+				https://freesound.org/people/moca/sounds/208549/
+				https://freesound.org/people/IanStarGem/sounds/269719/
