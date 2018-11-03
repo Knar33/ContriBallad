@@ -7,6 +7,7 @@ var instruments = [];
 var oldColors = [];
 var urlParams = new URLSearchParams(window.location.search);
 var UserID = urlParams.get("u") || "knar33";
+var SongPaused = true;
 
 function GetUserContributions(userID) {
     var resData;
@@ -153,57 +154,69 @@ function PlaySong() {
     var currentNote = 0;
 
     setInterval(function() {
-        if (currentNote >= totalNotes) {
-            currentNote = 0;
-        }
+        if (!SongPaused) {
+            if (currentNote >= totalNotes) {
+                currentNote = 0;
+            }
 
-        for (i = 0; i < 7; i++) {
-            var notePlusOffset = currentNote + i;
+            for (i = 0; i < 7; i++) {
+                var notePlusOffset = currentNote + i;
 
-            var newColor
-            var oldColor
-            if (notePlusOffset < totalNotes) {
-                var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
-                
-                switch (depth) {
-                    case 0:
-                        oldColor = "#ebedf0";
-                        newColor = "#f9ccf5";
-                        break;
-                    case 1:
-                        oldColor = "#c6e48b";
-                        newColor = "#ffa5f7";
-                        break;
-                    case 2:
-                        oldColor = "#7bc96f";
-                        newColor = "#ff7ff3";
-                        break;
-                    case 3:
-                        oldColor = "#239a3b";
-                        newColor = "#fc53ec";
-                        break;
-                    case 4:
-                        oldColor = "#196127";
-                        newColor = "#910083";
-                        break;
+                var newColor
+                var oldColor
+                if (notePlusOffset < totalNotes) {
+                    var depth = UserContributions.DailyContributions[notePlusOffset].contributionDepth;
+                    
+                    switch (depth) {
+                        case 0:
+                            oldColor = "#ebedf0";
+                            newColor = "#f9ccf5";
+                            break;
+                        case 1:
+                            oldColor = "#c6e48b";
+                            newColor = "#ffa5f7";
+                            break;
+                        case 2:
+                            oldColor = "#7bc96f";
+                            newColor = "#ff7ff3";
+                            break;
+                        case 3:
+                            oldColor = "#239a3b";
+                            newColor = "#fc53ec";
+                            break;
+                        case 4:
+                            oldColor = "#196127";
+                            newColor = "#910083";
+                            break;
+                    }
+                    
+                    if (depth !== 0) {
+                        instruments[i][depth].play();
+                    }
                 }
-                
-                if (depth !== 0) {
-                    instruments[i][depth].play();
-                }
-            }
 
-            $("#graph rect").eq(notePlusOffset).css("fill", newColor);
-            if (notePlusOffset > 6) {
-                $("#graph rect").eq(notePlusOffset - 7).css("fill", oldColors[i]);
+                $("#graph rect").eq(notePlusOffset).css("fill", newColor);
+                if (notePlusOffset > 6) {
+                    $("#graph rect").eq(notePlusOffset - 7).css("fill", oldColors[i]);
+                }
+                else {
+                    $("#graph rect").eq(364 + i).css("fill", oldColors[i]);
+                }
+                oldColors[i] = oldColor;
             }
-            else {
-                $("#graph rect").eq(364 + i).css("fill", oldColors[i]);
-            }
-            oldColors[i] = oldColor;
+            currentNote += 7;
         }
-        currentNote += 7;
     }, 300);
+}
+
+function pauseSong() {
+    SongPaused = true;
+    $("#songToggle").attr("onClick", "ResumeSong()").attr("value", "Play");
+}
+
+function ResumeSong() {
+    SongPaused = false;
+    $("#songToggle").attr("onClick", "pauseSong()").attr("value", "Pause");
 }
 
 $(window).on('load', function () {
