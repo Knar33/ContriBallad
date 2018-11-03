@@ -100,10 +100,10 @@ function GetUserContributions(userID) {
     }
     var startingNote = Math.floor(startingLetter / 2);
 
-    SetInstruments(scale, startingNote, startingLetter)
+    SetInstruments(scale, startingNote)
 }
 
-function SetInstruments(scale, startingNote, startingLetter) {
+function SetInstruments(scale, startingNote) {
     var piano1 = [];
     piano1[1] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[0]] + '.wav'], volume: 1, preload: true });
     piano1[2] = new Howl({ src: ['sound/piano/' + Notes[startingNote + scale[1]] + '.wav'], volume: 1, preload: true });
@@ -119,17 +119,17 @@ function SetInstruments(scale, startingNote, startingLetter) {
     instruments[0] = piano2;
 
     var drum1 = [];
-    drum1[1] = new Howl({ src: ['sound/drum/snare/' + (startingLetter + 0) + '.wav'], volume: 1, preload: true });
-    drum1[2] = new Howl({ src: ['sound/drum/snare/' + (startingLetter + 1) + '.wav'], volume: 1, preload: true });
-    drum1[3] = new Howl({ src: ['sound/drum/snare/' + (startingLetter + 2) + '.wav'], volume: 1, preload: true });
-    drum1[4] = new Howl({ src: ['sound/drum/snare/' + (startingLetter + 3) + '.wav'], volume: 1, preload: true });
+    drum1[1] = new Howl({ src: ['sound/drum/snare/' + (startingNote + 0) + '.wav'], volume: 1, preload: true });
+    drum1[2] = new Howl({ src: ['sound/drum/snare/' + (startingNote + 1) + '.wav'], volume: 1, preload: true });
+    drum1[3] = new Howl({ src: ['sound/drum/snare/' + (startingNote + 2) + '.wav'], volume: 1, preload: true });
+    drum1[4] = new Howl({ src: ['sound/drum/snare/' + (startingNote + 3) + '.wav'], volume: 1, preload: true });
     instruments[2] = drum1;
 
     var drum2 = [];
-    drum2[1] = new Howl({ src: ['sound/drum/cymbal/' + (startingLetter + 0) + '.wav'], volume: 1, preload: true });
-    drum2[2] = new Howl({ src: ['sound/drum/cymbal/' + (startingLetter + 1) + '.wav'], volume: 1, preload: true });
-    drum2[3] = new Howl({ src: ['sound/drum/cymbal/' + (startingLetter + 2) + '.wav'], volume: 1, preload: true });
-    drum2[4] = new Howl({ src: ['sound/drum/cymbal/' + (startingLetter + 3) + '.wav'], volume: 1, preload: true });
+    drum2[1] = new Howl({ src: ['sound/drum/cymbal/' + (startingNote + 0) + '.wav'], volume: 1, preload: true });
+    drum2[2] = new Howl({ src: ['sound/drum/cymbal/' + (startingNote + 1) + '.wav'], volume: 1, preload: true });
+    drum2[3] = new Howl({ src: ['sound/drum/cymbal/' + (startingNote + 2) + '.wav'], volume: 1, preload: true });
+    drum2[4] = new Howl({ src: ['sound/drum/cymbal/' + (startingNote + 3) + '.wav'], volume: 1, preload: true });
     instruments[3] = drum2;
 
     var bass1 = [];
