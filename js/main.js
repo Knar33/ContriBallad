@@ -134,9 +134,9 @@ function SetInstruments(scale, startingNote) {
 
     var bass1 = [];
     bass1[1] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[0]] + '.wav'], preload: true });
-    bass1[2] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[1]] + '.wav'], preload: true });
-    bass1[3] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
-    bass1[4] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[3]] + '.wav'], preload: true });
+    bass1[2] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[2]] + '.wav'], preload: true });
+    bass1[3] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[4]] + '.wav'], preload: true });
+    bass1[4] = new Howl({ src: ['sound/bass/' + Notes[startingNote + scale[6]] + '.wav'], preload: true });
     instruments[4] = bass1;
 
     var guitar1 = [];
