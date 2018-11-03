@@ -23,7 +23,7 @@ x	isolate the part of the html we need instead of displaying everything from the
 x	animation to show which week the song is playing
 x	strip halloween
 x	Add an indication that the contribution chart is being loaded
-	dynamic drum kit based on starting letter too ?
+x	dynamic drum kit based on starting letter too ?
 x	change bass notes
 	add attribution for sound samples
 		Piano: https://freesound.org/people/jobro/packs/2489/
