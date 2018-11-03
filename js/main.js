@@ -34,6 +34,7 @@ function GetUserContributions(userID) {
             404: function (data) {
                 resData = data;
                 $("#errorBox").html("<span style='color: red;'>That user does not exist.</span>");
+                $("#graph").html("");
             }
         }
     });
